@@ -24,14 +24,29 @@ setup_parameter(){
 }
 
 #######################################
+# Build Project
+# Globals:
+#   None
+# Arguments:
+#   project name
+#######################################
+colcon_build(){
+    cd ${HOME}/${1}/ros2_ws && colcon build --symlink-install
+}
+
+#######################################
 # Insert commands in ros_menu/config.yaml
 # Globals:
 #   None
 # Arguments:
-#   None
+#   project name
 #######################################
 insert_cmds(){
-    sed -i "24 a \ \ \ \ \ \ -\ source\ ${HOME}/ROSKY2/setup/shell_scripts/environment.sh" ${HOME}/ros_menu/config.yaml
+    if [ -z "$(cat ${HOME}/ros_menu/config.yaml | grep ${1})" ] 
+    then
+        sed -i "24 a \ \ \ \ \ \ -\ source\ ${HOME}/${1}/setup/shell_scripts/environment.sh" ${HOME}/ros_menu/config.yaml
+    fi
+
 }
 
 
@@ -45,9 +60,9 @@ insert_cmds(){
 main(){
     echo -e "Start setting the project ROSKY2..."
     setup_parameter
-    insert_cmds
+    colcon_build ROSKY2
+    insert_cmds ROSKY2
     echo -e "Done! Please re-source the file ${HOME}/.bashrc"
-    exit 0
 }
 
 # start the progress
