@@ -84,14 +84,16 @@ pip3_install_dependencies(){
 ydlidar_sdk_install(){
     if [ -d "${HOME}/${1}/setup/YDLidar-SDK" ]
     then
-        mkdir -p ${HOME}/${1}/setup/YDLidar-SDK/build
+        echo "YDLIDAR-SDK already exists." | tee -a ${RECORD_FILE}
     else
-        git clone https://github.com/YDLIDAR/YDLidar-SDK.git ${HOME}/${1}/setup
+        git clone https://github.com/YDLIDAR/YDLidar-SDK.git ${HOME}/${1}/setup/YDLidar-SDK
+        mkdir -p ${HOME}/${1}/setup/YDLidar-SDK/build
+        cd ${HOME}/${1}/setup/YDLidar-SDK/build && cmake ..
+        make
+        sudo make install | tee -a ${RECORD_FILE}
+        echo "YDLIDAR-SDK install done!" | tee -a ${RECORD_FILE}
     fi 
-    cd ${HOME}/${1}/setup/YDLidar-SDK/build && cmake ..
-    make
-    sudo make install | tee -a ${RECORD_FILE}
-    echo "YDLIDAR-SDK install done!" | tee -a ${RECORD_FILE}
+    
 }
 
 
@@ -103,11 +105,16 @@ ydlidar_sdk_install(){
 #   project name
 #######################################
 add_udev_rules(){
-    echo "Setup YDLidar X4 and ominibot car." | tee -a ${RECORD_FILE}
-    sudo $SHELL -c ". ${HOME}/${1}/ros2_ws/src/ydlidar_ros2_driver/startup/initenv.sh"
-    sudo $SHELL -c ". ${HOME}/${1}/ros2_ws/src/ominibot_car/startup/initenv.sh"
-    sudo udevadm control --reload-rules
-    sudo udevadm trigger
+    if [ -n "$(ls /dev | grep ominibot_car)" ] 
+    then
+        echo "YDLidar X4 and ominibot car were already set up." | tee -a ${RECORD_FILE}
+    else
+        sudo $SHELL -c ". ${HOME}/${1}/ros2_ws/src/ydlidar_ros2_driver/startup/initenv.sh"
+        sudo $SHELL -c ". ${HOME}/${1}/ros2_ws/src/ominibot_car/startup/initenv.sh"
+        sudo udevadm control --reload-rules
+        sudo udevadm trigger
+        echo "Setup YDLidar X4 and ominibot car." | tee -a ${RECORD_FILE}
+    fi
 }
 
 
@@ -143,9 +150,6 @@ config_ros_menu(){
               ${HOME}/ros_menu/config.yaml
         fi
     fi
-    ./ROSKY2/setup/shell_scripts/set_project.sh
-
-
 }
 
 #######################################
@@ -193,6 +197,7 @@ main(){
     ydlidar_sdk_install ROSKY2
     add_udev_rules ROSKY2
     config_ros_menu
+    modified_sytax_in_setup_cfg ROSKY2
     install_nomachine
 
     echo -e "\n====== End $(date) ======\n" >> $RECORD_FILE
