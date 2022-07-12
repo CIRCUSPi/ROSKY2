@@ -159,7 +159,7 @@ config_ros_menu(){
 # Arguments:
 #   project name
 #######################################
-modified_sytax_in_setup_cfg(){
+modified_syntax_in_setup_cfg(){
     sudo sed -i "s:script\-dir:script_dir:g;s:install\-scripts:install_scripts:g" $(find ${HOME}/${1}/ros2_ws -iname "setup.cfg" -type f)
 }
 
@@ -197,7 +197,8 @@ main(){
     ydlidar_sdk_install ROSKY2
     add_udev_rules ROSKY2
     config_ros_menu
-    modified_sytax_in_setup_cfg ROSKY2
+    modified_syntax_in_setup_cfg ROSKY2
+    . ${HOME}/ROSKY2/setup/shell_scripts/set_project.sh
     install_nomachine
 
     echo -e "\n====== End $(date) ======\n" >> $RECORD_FILE

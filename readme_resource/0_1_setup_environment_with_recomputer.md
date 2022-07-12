@@ -57,10 +57,12 @@ Now you can find the project ROSKY2 in your $HOME directory.
 Once you download the project ROSKY2, next step is setting up the operating environment or you can't run the project ROSKY2.
 
 There are many dependencies with the project ROSKY2, it waste time to manually install those. You can use a script to isntall those automatically. Please open the terminal and type the command below to run the script:
+
 ```bash=
 $ ./ROSKY2/install_script/rosky2_dependencies.sh
 ```
-All right. Now everything is ready to run the ROSKY2. Before doing that, I want to introduce a convenient tool, [ros_menu](https://github.com/Adlink-ROS/ros_menu). It's from ADLINK and can help you to choose the operating enviroment you want to use. Now you can use ros_menu after successfully running the script **"rosky2_dependencies.sh"**.
+
+Also, the script will build the project with building tool "colcon".  After building project, everything is ready to run the ROSKY2. Before doing that, I want to introduce a convenient tool, [ros_menu](https://github.com/Adlink-ROS/ros_menu). It's from ADLINK and can help you to choose the operating enviroment you want to use. Now you can use ros_menu after successfully running the script **"rosky2_dependencies.sh"**.
 
 Please re-open the terminal and then you can find your termial will be the similar image below:
 
