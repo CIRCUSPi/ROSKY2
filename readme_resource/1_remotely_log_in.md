@@ -1,4 +1,3 @@
-
 # CH 1: ROSKY2 - remotely log in
 
 In this example, user will use NoMachine to remotely log in ROSKY2.

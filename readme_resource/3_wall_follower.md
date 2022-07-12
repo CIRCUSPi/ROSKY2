@@ -1,4 +1,4 @@
-# Simple ROS2 example for ROSKY2 - wall follower
+# CH3: ROS2 example for ROSKY2 - wall follower
 In this example, we'll use ROS2 and let ROSKY2 do:
 1. find wall automatically with lidar
 2. try to near the wall and record odometery at the same time

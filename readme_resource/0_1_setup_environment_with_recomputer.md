@@ -1,4 +1,4 @@
-# Setup operating environment for ROSKY2 with recomputer-J1010
+# CH 0-1: Setup operating environment for ROSKY2 with recomputer-J1010
 This note will help you how to setup the Project "ROSKY2" with reComputer-J1010.
 
 ## Hardware you need to prepare
