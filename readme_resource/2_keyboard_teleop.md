@@ -53,7 +53,7 @@ Now user just running the system on the SBC and it can not send/receive data fro
 
 Please type the command below in the terminator to start the communication:
 ```bash=
-ros2 launch rosky2_bringup bringup.launch.py
+$ ros2 launch rosky2_bringup bringup.launch.py
 ```
 ![launch bringup.launch.py](https://i.imgur.com/eCJKtdZ.png)
 
@@ -74,7 +74,7 @@ From [Step 1-2 in this note](#step-1-2-open-terminator-on-the-remote-desktop), u
 Now is ready to use keyboard teleop for ROSKY2. Please type the command below to run the node "teleop_twist_keyboard":
 
 ```bash=
-ros2 run teleop_twist_keyboard teleop_twist_keyboard
+$ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
 ![Run the node teleop_twist_keyboard](https://i.imgur.com/c4WH8Te.png)

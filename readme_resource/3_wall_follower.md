@@ -41,7 +41,7 @@ We need to start the communication between Jetson nano, lidar and motor control 
 Please type the code below in the terminator to brinup the ROSKY2:
 
 ```bash=
-ros2 launch rosky2_bringup bringup.launch.py rf2o:=true 
+$ ros2 launch rosky2_bringup bringup.launch.py rf2o:=true 
 ```
 Great! In this case, we will use lidar to publish odom, so remember to set LaunchConfiguration "rf2o" to true.
 
@@ -51,23 +51,16 @@ And if everything is fine, then you can see the information on the terminator an
 The main launch file consist of [wall_following.launch.py](https://github.com/kjoelovelife/ROSKY2/blob/main/ros2_ws/src/wall_follower/launch/wall_following.launch.py), [find_wall.launch.py](https://github.com/kjoelovelife/ROSKY2/blob/main/ros2_ws/src/wall_follower/launch/find_wall.launch.py) and [record_odometry_action_server.launch.py](https://github.com/kjoelovelife/ROSKY2/blob/main/ros2_ws/src/wall_follower/launch/record_odometry_action_server.launch.py). Please type the code below in the terminator to start the mission:
 
 ```bash=
-ros2 launch wall_follower main.launch.py
+$ ros2 launch wall_follower main.launch.py
 ```
 
 And if everything is fine, you can see the information include how far ROSKY2 go and all recorded odometery before following the wall on the terminator.
 
 Please visit it to wacth the full operating video: [ROSKY2 and wall_follower](https://youtu.be/GTSCI3VpJeo)
 
-## More detail you may want to know
+## Next
 
-
-| Name                        | Description        |
-| --------------------------- | ------------------ |
-| [1. ROS2 and Topic]()       | to be continued... |
-| [2. ROS2 and Service]()     | to be continued... |
-| [3. ROS2 and Action]()      | to be continued... |
-| [4. ROS2 and Interface]()   | to be continued... |
-
+Please have fun to use ROSKY2 :)
 
 
 
