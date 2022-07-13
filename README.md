@@ -1,3 +1,6 @@
+![LICENSE](https://img.shields.io/badge/license-Apache%202.0-blue)
+![Version](https://img.shields.io/badge/version-v1.1.0-succcess)
+
 This project is about how to use ROS2 to control [ROSKY2](https://www.icshop.com.tw/product-page.php?28182)
 
 ![ROSKY2](https://i.imgur.com/WU13drn.jpg)
@@ -30,17 +33,8 @@ This project is about how to use ROS2 to control [ROSKY2](https://www.icshop.com
 - Wei-Chih Lin(weichih.lin@protonmail.com)
 
 ## How to use
-Suggest visiting in order:
 
-| Example Name | Description  |
-| ------------ | -------------|
-| [CH 0.0: ROSKY2 - setup environment with Jetson Nano 4G Developer Kit](readme_resource/0_0_setup_environment_with_jetson_nano.md) | if you use **Jetson nano 4G Developer Kit**, please use this to setup the operating environment. |
-| [CH 0.1: ROSKY2 - setup environment with reComputer](readme_resource/0_1_setup_environment_with_recomputer.md)  |  if you use **reComputer-J1010**, please use this to setup the operating environment. |
-| [CH 1: ROSKY2 - remotely log in](readme_resource/1_remotely_log_in.md) | Use NoMachine in the host machine to log in remotely|
-| [CH 2: ROSKY2 - keyboard teleop](readme_resource/2_keyboard_teleop.md)         |  Keyboard teleop  |
-| [CH 3: wall_follower](readme_resource/3_wall_follower.md)| ROSKY2 can go along with the wall  |
-| CH4: rosky2_slam | to be continued ...  |
-| CH5: rosky2_nav  | to be continued ...  |
+Please check here: [ROSKY2 wiki](https://github.com/CIRCUSPi/ROSKY2/wiki)
 
 ## Update Log
 ### 2022/07/08
