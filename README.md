@@ -46,7 +46,9 @@ Please check here: [ROSKY2 wiki](https://github.com/CIRCUSPi/ROSKY2/wiki)
 > More information can visit 0_setup_environment.md and 1_wall_follower.md in readme_resourse. 
 
 ## License and Disclaimer
-Copyright (c) 2021 Wei-Chih Lin(weichih.lin@protonmail.com)
+CIRCUSPi ROSKY2
+
+Copyright 2022, Wei-Chih Lin <joe@icshop.com.tw>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
