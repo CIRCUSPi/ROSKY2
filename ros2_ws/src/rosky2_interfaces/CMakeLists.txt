@@ -27,6 +27,7 @@ find_package(rosidl_default_generators REQUIRED)
 # add msg and srv
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/FindWall.srv"
+  "srv/DirectionUpdate.srv"
   "action/OdomRecord.action"
   "msg/Point.msg"
   DEPENDENCIES geometry_msgs   

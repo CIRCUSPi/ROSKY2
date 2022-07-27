@@ -28,8 +28,9 @@ setup(
             f'find_wall_server = {package_name}.find_wall_server:main',
             f'test_server = {package_name}.test_server:main',
             f'test_client = {package_name}.test_client:main',
-            f'test_action = p{package_name}.test_action:main',
+            f'test_action = {package_name}.test_action:main',
             f'record_odometry_action_server = {package_name}.record_odometry_action_server:main',
+            f'detect_distance = {package_name}.detect_distance:main',
         ],
     },
 )
