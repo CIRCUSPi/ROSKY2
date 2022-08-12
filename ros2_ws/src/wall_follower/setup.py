@@ -31,6 +31,8 @@ setup(
             f'test_action = {package_name}.test_action:main',
             f'record_odometry_action_server = {package_name}.record_odometry_action_server:main',
             f'detect_distance = {package_name}.detect_distance:main',
+            f'action_server_example = {package_name}.action_server_example:main'
+            f'action_client_example = {package_name}.action_client_example:main'
         ],
     },
 )
