@@ -3,17 +3,21 @@ import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionClient
 from rosky2_interfaces.action import DesireSpeed
+from rcl_interfaces.msg import ParameterDescriptor
 
 class ActionClientExample(Node):
     def __init__(self):
         super().__init__("action_client_example")
+        my_parameter_descriptor = ParameterDescriptor(description="How fast the ROSKY 2 GO!")
+        self.declare_parameter(name="speed", value=0.18, descriptor=my_parameter_descriptor)
         self.action_client = ActionClient(
             node=self, 
             action_type=DesireSpeed, 
             action_name="/action_server_example/desire_speed",
-        )
+            )
         self.get_logger().info(f"Start!")
-        future = self.send_goal(0.18)
+        speed = self.get_parameter("speed").get_parameter_value().double_value
+        future = self.send_goal(speed)
 
     def send_goal(self, speed):
         goal = DesireSpeed.Goal()
@@ -24,7 +28,7 @@ class ActionClientExample(Node):
             feedback_callback=self.feedback_back
         )
         self.send_goal_future.add_done_callback(self.goal_response_callback)
-
+        
     def goal_response_callback(self, future):
         goal_handle = future.result()
         if not goal_handle.accepted:
