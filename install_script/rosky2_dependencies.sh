@@ -22,6 +22,7 @@ ROS2_DISTRO=foxy
 # Use apt install ros dependencies for this project
 # Globals:
 #   UBUNTU_DISTRO
+#   ROS2_DISTRO
 # Arguments:
 #   None
 #######################################
@@ -30,7 +31,8 @@ apt_install_ros_dependencies(){
     then
         sudo apt install -y ros-melodic-rqt-reconfigure
     else
-        echo "Package rqt-reconfigure no support binary file for ROS2-Foxy. "
+        sudo apt install -y ros-noetic-rqt-reconfigure \
+                            ros-${ROS2_DISTRO}-navigation2
     fi
     
 }
